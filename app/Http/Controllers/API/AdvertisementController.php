@@ -67,6 +67,7 @@ class AdvertisementController extends Controller
         DB::beginTransaction();
         try {
             $ads = new Advertisement();
+            $ads->business_profile_id = $request->user()->businessProfile->id;
             $ads->start_date = $request->start_date;
             $ads->end_date = $request->end_date;
             $ads->media = $request->media;
@@ -117,6 +118,7 @@ class AdvertisementController extends Controller
 
         DB::beginTransaction();
         try {
+            $ads->business_profile_id = $request->user()->businessProfile->id;
             $ads->start_date = $request->start_date;
             $ads->end_date = $request->end_date;
             $ads->media = $request->media;
