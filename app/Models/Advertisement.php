@@ -23,6 +23,12 @@ class Advertisement extends Model
         'updated_at',
     ];
 
+
+    public function businessProfile()
+    {
+        return $this->belongsTo(BusinessProfile::class);
+    }
+
     public function sales()
     {
         return $this->hasMany(Sale::class);

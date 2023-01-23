@@ -20,14 +20,14 @@ class BusinessProfile extends Model
         'social media3',
     ];
 
-    public function sales()
-    {
-        return $this->hasMany(Sale::class);
-    }
-
-    public function advertisements()
+    public function advertisement()
     {
         return $this->hasMany(Advertisement::class);
+    }
+
+    public function sales()
+    {
+        return $this->hasMany(Sales::class);
     }
 
     public function user()

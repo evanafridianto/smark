@@ -17,6 +17,7 @@ class Sale extends Model
     protected $fillable = [
         'transaction_id',
         'business_profile_id',
+        'advertisement_id',
         'date',
         'customer',
         'qty',
@@ -31,6 +32,10 @@ class Sale extends Model
         return $this->belongsTo(BusinessProfile::class);
     }
 
+    public function advertisement()
+    {
+        return $this->belongsTo(Advertisement::class);
+    }
 
     public function scopeFilter($query, array $filters)
     {

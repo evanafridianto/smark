@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('transaction_id');
             $table->foreignId('business_profile_id')->constrained()->onDelete('cascade')->onUpdate('cascade')->unsigned();
+            $table->foreignId('advertisement_id')->constrained()->onDelete('cascade')->onUpdate('cascade')->unsigned();
             $table->date('date');
             $table->string('customer')->nullable();
             $table->string('qty');

@@ -17,12 +17,14 @@
                         class="nav-link {{ Request::is('admin/user/*') ? 'active' : '' }}">Data
                         User</a>
                     <a href="{{ route('user.show', ['business-profile', $user->id]) }}"
-                        class="nav-link {{ Request::is('admin/business-profile/*') ? 'active' : '' }}">Profil UMKM</a> <a
-                        href="{{ route('user.show', ['sales', $user->id]) }}"
+                        class="nav-link {{ Request::is('admin/business-profile/*') ? 'active' : '' }}">Profil UMKM</a>
+                    <a href="{{ route('user.show', ['advertisement', $user->id]) }}"
+                        class="nav-link {{ Request::is('admin/advertisement/*') ? 'active' : '' }}">Advertisement</a>
+
+                    <a href="{{ route('user.show', ['sales', $user->id]) }}"
                         class="nav-link {{ Request::is('admin/sales/*') ? 'active' : '' }}">
-                        Penjualan</a> <a href="{{ route('user.show', ['advertisement', $user->id]) }}"
-                        class="nav-link {{ Request::is('admin/advertisement/*') ? 'active' : '' }}">Advertisement</a><a
-                        href="{{ route('user.show', ['roas', $user->id]) }}"
+                        Penjualan</a>
+                    <a href="{{ route('user.show', ['roas', $user->id]) }}"
                         class="nav-link {{ Request::is('admin/roas/*') ? 'active' : '' }}">ROAS</a>
                 </nav><!-- /.nav -->
             </div><!-- /.card -->
@@ -143,6 +145,7 @@
                                 <thead>
                                     <tr>
                                         <th> ID Trans. </th>
+                                        <th> ID Ads. </th>
                                         <th> Tanggal </th>
                                         <th> Pelanggan </th>
                                         <th> Jumlah </th>
@@ -157,6 +160,7 @@
                                         @foreach ($sales as $sale)
                                             <tr>
                                                 <td>{{ $sale->transaction_id }} </td>
+                                                <td>{{ $sale->advertisement_id }} </td>
                                                 <td>{{ $sale->date }} </td>
                                                 <td>{{ $sale->customer }}</td>
                                                 <td>{{ $sale->qty }}</td>
@@ -172,7 +176,7 @@
                                         @endforeach
                                     @else
                                         <tr>
-                                            <td class="align-middle text-center" colspan="8">
+                                            <td class="align-middle text-center" colspan="9">
                                                 Data tidak ditemukan!
                                             </td>
                                         </tr>
@@ -180,10 +184,10 @@
                                 </tbody><!-- /tbody -->
                             </table><!-- /.table -->
                         </div>
-                                    <!-- .pagination -->
-            <ul class="pagination justify-content-center mt-4">
-                {{ $sales->links('pagination::bootstrap-4') }}
-            </ul><!-- /.pagination -->
+                        <!-- .pagination -->
+                        <ul class="pagination justify-content-center mt-4">
+                            {{ $sales->links('pagination::bootstrap-4') }}
+                        </ul><!-- /.pagination -->
                     @elseif (request('data') == 'advertisement')
                         <div class="table-responsive">
                             <form action="">
@@ -248,10 +252,10 @@
                                 </tbody><!-- /tbody -->
                             </table><!-- /.table -->
                         </div>
-                          <!-- .pagination -->
-            <ul class="pagination justify-content-center mt-4">
-                {{ $advertisements->links('pagination::bootstrap-4') }}
-            </ul><!-- /.pagination -->
+                        <!-- .pagination -->
+                        <ul class="pagination justify-content-center mt-4">
+                            {{ $advertisements->links('pagination::bootstrap-4') }}
+                        </ul><!-- /.pagination -->
                     @elseif (request('data') == 'roas')
                         <div class="table-responsive">
                             <form action="">
@@ -327,10 +331,10 @@
                                 </tbody><!-- /tbody -->
                             </table><!-- /.table -->
                         </div>
-                          <!-- .pagination -->
-            <ul class="pagination justify-content-center mt-4">
-                {{ $roas->links('pagination::bootstrap-4') }}
-            </ul><!-- /.pagination -->
+                        <!-- .pagination -->
+                        <ul class="pagination justify-content-center mt-4">
+                            {{ $roas->links('pagination::bootstrap-4') }}
+                        </ul><!-- /.pagination -->
                     @endif
                 </div><!-- /.card-body -->
             </div>

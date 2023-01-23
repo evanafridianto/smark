@@ -11,7 +11,6 @@ use Illuminate\Support\Facades\Validator;
 class SalesRecordController extends Controller
 
 {
-
     public function index(Request $request)
     {
         try {
@@ -48,6 +47,7 @@ class SalesRecordController extends Controller
             $request->all(),
             [
                 'transaction_id' => 'required',
+                'advertisement_id' => 'required',
                 'date' => 'required|date',
                 'customer' => 'string|max:255',
                 'qty' => 'required|numeric',
@@ -71,6 +71,7 @@ class SalesRecordController extends Controller
         try {
             $sales = new Sale();
             $sales->business_profile_id = $request->user()->businessProfile->id;
+            $sales->advertisement_id = $request->advertisement_id;
             $sales->transaction_id = $request->transaction_id;
             $sales->date = $request->date;
             $sales->customer = $request->customer;
@@ -104,6 +105,7 @@ class SalesRecordController extends Controller
             $request->all(),
             [
                 'transaction_id' => 'required',
+                'advertisement_id' => 'required',
                 'date' => 'required|date',
                 'customer' => 'string|max:255',
                 'qty' => 'required|numeric',
@@ -127,6 +129,7 @@ class SalesRecordController extends Controller
 
             $sales->business_profile_id = $request->user()->businessProfile->id;
             $sales->transaction_id = $request->transaction_id;
+            $sales->advertisement_id = $request->advertisement_id;
             $sales->date = $request->date;
             $sales->customer = $request->customer;
             $sales->qty = $request->qty;

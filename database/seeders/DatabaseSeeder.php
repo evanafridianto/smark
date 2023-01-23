@@ -6,6 +6,7 @@ namespace Database\Seeders;
 
 use App\Models\BusinessProfile;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -21,6 +22,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Admin',
             'email' => 'admin@smark.com',
             'role' => 'admin',
+            'password' => Hash::make('12345678'), // password
         ]);
 
         \App\Models\Category::factory(8)->create();

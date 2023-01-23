@@ -40,6 +40,7 @@ class SalesByUserIdExport implements WithHeadings, WithStyles, FromQuery, WithMa
     {
         return [
             $sales->id,
+            $sales->advertisement_id,
             $sales->transaction_id,
             $sales->date,
             $sales->customer,
@@ -55,6 +56,7 @@ class SalesByUserIdExport implements WithHeadings, WithStyles, FromQuery, WithMa
     {
         return [
             'ID.',
+            'ID Advertisement',
             'ID Transaksi',
             'Tanggal',
             'Pelanggan',

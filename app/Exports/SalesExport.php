@@ -24,6 +24,7 @@ class SalesExport implements WithHeadings, WithStyles, FromCollection, WithTitle
             'ID',
             'ID Transaksi',
             'ID UMKM',
+            'ID Advertisement',
             'Tanggal',
             'Pelanggan',
             'Jumlah',
