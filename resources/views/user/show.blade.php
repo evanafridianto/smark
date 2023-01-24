@@ -145,7 +145,7 @@
                                 <thead>
                                     <tr>
                                         <th> ID Trans. </th>
-                                        <th> ID Ads. </th>
+                                        <th> Periode Ads. </th>
                                         <th> Tanggal </th>
                                         <th> Pelanggan </th>
                                         <th> Jumlah </th>
@@ -160,7 +160,8 @@
                                         @foreach ($sales as $sale)
                                             <tr>
                                                 <td>{{ $sale->transaction_id }} </td>
-                                                <td>{{ $sale->advertisement_id }} </td>
+                                                <td>{{ $sale->advertisement->start_date . ' - ' . $sale->advertisement->end_date }}
+                                                </td>
                                                 <td>{{ $sale->date }} </td>
                                                 <td>{{ $sale->customer }}</td>
                                                 <td>{{ $sale->qty }}</td>
