@@ -87,21 +87,21 @@
                                         <td> : </td>
                                         <td>
                                             <a target="_blank"
-                                                href="http://{{ $user->businessProfile->social_media1 }}">{{ $user->businessProfile->social_media1 }}</a>
+                                                href="{{ $user->businessProfile->social_media1 }}">{{ $user->businessProfile->social_media1 }}</a>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td> Sosial Media 2 </td>
                                         <td> : </td>
                                         <td><a target="_blank"
-                                                href="http://{{ $user->businessProfile->social_media2 }}">{{ $user->businessProfile->social_media2 }}</a>
+                                                href="{{ $user->businessProfile->social_media2 }}">{{ $user->businessProfile->social_media2 }}</a>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td> Sosial Media 3 </td>
                                         <td> : </td>
                                         <td><a target="_blank"
-                                                href="http://{{ $user->businessProfile->social_media3 }}">{{ $user->businessProfile->social_media3 }}</a>
+                                                href="{{ $user->businessProfile->social_media3 }}">{{ $user->businessProfile->social_media3 }}</a>
                                         </td>
                                     </tr>
                                 </tbody><!-- /tbody -->

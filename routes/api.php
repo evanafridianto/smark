@@ -42,7 +42,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
         Route::post('/email/verification-notification', 'sendLink')->middleware('throttle:6,1');
     });
 
-    Route::group(['middleware' => ['user', 'verified']], function () {
+    Route::group(['middleware' => ['user', 'apiverified']], function () {
         Route::controller(UserProfileController::class)->group(function () {
             Route::get('/profile', 'show');
             Route::patch('/profile', 'update');
