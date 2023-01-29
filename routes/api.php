@@ -40,7 +40,13 @@ Route::controller(UserPasswordController::class)->group(function () {
 Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::controller(EmailNotificationController::class)->group(function () {
         Route::post('/email/verification-notification', 'sendLink')->middleware('throttle:6,1');
+        // Route::post('/email/verification-notification', 'sendLink')->middleware('throttle:6,1');
     });
+    Route::get('/emailIsVerified', function () {
+        return response()->json(['emailIsVerified' => auth()->user()->hasVerifiedEmail()]);
+    });
+
+
 
     Route::group(['middleware' => ['user', 'apiverified']], function () {
         Route::controller(UserProfileController::class)->group(function () {
