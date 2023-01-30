@@ -75,7 +75,8 @@ class AuthController extends Controller
             return response()->json([
                 'status' => true,
                 'message' => 'new user registration is successful, email verification link has been sent.',
-                'token' => $user->createToken("register-token")->plainTextToken
+                'token' => $user->createToken("register-token")->plainTextToken,
+                'emailIsVerified' => request()->user()->hasVerifiedEmail()
             ], 200);
         } catch (\Throwable $th) {
             DB::rollBack();
