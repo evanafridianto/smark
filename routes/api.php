@@ -48,7 +48,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
 
 
 
-    Route::group(['middleware' => ['user', 'apiverified']], function () {
+    Route::group(['middleware' => ['user', 'verified']], function () {
         Route::controller(UserProfileController::class)->group(function () {
             Route::get('/profile', 'show');
             Route::patch('/profile', 'update');
