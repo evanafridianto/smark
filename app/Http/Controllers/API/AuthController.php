@@ -116,7 +116,8 @@ class AuthController extends Controller
             return response()->json([
                 'status' => true,
                 'message' => 'user logged in successfully',
-                'token' => $user->createToken("login-token")->plainTextToken
+                'token' => $user->createToken("login-token")->plainTextToken,
+                'emailIsVerified' => request()->user()->hasVerifiedEmail()
             ], 200);
         } catch (\Throwable $th) {
             return response()->json([
