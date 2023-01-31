@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\API;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Notifications\SmarkApi;
+use Illuminate\Notifications\Notification;
 
 class EmailNotificationController extends Controller
 {
@@ -16,10 +18,17 @@ class EmailNotificationController extends Controller
                     'message' => 'email has been verified'
                 ], 200);
             }
-            $request->user()->sendEmailVerificationNotification();
+            // $request->user()->sendEmailVerificationNotification();
+
+            $offerData = [
+                'body' => $request->route('token')
+            ];
+
+            Notification::send($request->user(), new SmarkApi($offerData));
+
             return response()->json([
                 'status' => true,
-                'message' => 'verification link sent'
+                'message' => 'verification link sent',
             ], 200);
         } catch (\Throwable $th) {
             return response()->json([
